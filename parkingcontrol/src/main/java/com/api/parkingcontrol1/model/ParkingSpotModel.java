@@ -17,7 +17,7 @@ public class ParkingSpotModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO) // id gerado de forma automatica
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // id gerado de forma automatica
 	private UUID id; //UUID -> identificador unico universal proprio para microservices
 	@Column(nullable = false, unique = true, length = 10)
 	private String parkingSpotNumber;
