@@ -50,7 +50,7 @@ public class ParkingSpotService {
 
 	}
 
-	public Optional<ParkingSpotModel> findById(UUID id) {
+	public Optional<ParkingSpotModel> findById(long id) {
 		return parkingSpotRepository.findById(id);
 	}
 

@@ -18,7 +18,7 @@ public class ParkingSpotModel implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // id gerado de forma automatica
-	private UUID id; //UUID -> identificador unico universal proprio para microservices
+	private long id; //UUID -> identificador unico universal proprio para microservices
 	@Column(nullable = false, unique = true, length = 10)
 	private String parkingSpotNumber;
 	@Column(nullable = false, unique = true, length = 7)
@@ -39,10 +39,10 @@ public class ParkingSpotModel implements Serializable {
 	private String block;
 	
 	
-	public UUID getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(UUID id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getParkingSpotNumber() {

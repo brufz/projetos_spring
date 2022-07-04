@@ -70,14 +70,14 @@ public class ParkingSpotController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<ParkingSpotModel> getById(@PathVariable UUID id){
+	public ResponseEntity<ParkingSpotModel> getById(@PathVariable long id){
 		return parkingSpotService.findById(id)
 				.map(resp -> ResponseEntity.ok(resp)) //lambda function
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Object> deleteParkingSpot(@PathVariable(value = "id") UUID id){
+	public ResponseEntity<Object> deleteParkingSpot(@PathVariable(value = "id") long id){
 		Optional<ParkingSpotModel> parkingSpotModelOptional = parkingSpotService.findById(id);
 		if(!parkingSpotModelOptional.isPresent()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Parking Spot not found");
@@ -87,7 +87,7 @@ public class ParkingSpotController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Object> updateParkingSpotModel(@PathVariable (value = "id") UUID id, 
+	public ResponseEntity<Object> updateParkingSpotModel(@PathVariable (value = "id") long id, 
 										@RequestBody @Valid ParkingSpotDto parkingSpotDto){
 		Optional<ParkingSpotModel> parkingSpotModelOptional = parkingSpotService.findById(id);
 		if(!parkingSpotModelOptional.isPresent()) {

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.api.parkingcontrol1.model.ParkingSpotModel;
 
 @Repository
-public interface ParkingSpotRepository extends JpaRepository<ParkingSpotModel, UUID>{
+public interface ParkingSpotRepository extends JpaRepository<ParkingSpotModel, Long>{
 
 public boolean existsByLicensePlateCar(String licensePlateCar);
 public boolean existsByParkingSpotNumber(String parkingSpotNumber);
